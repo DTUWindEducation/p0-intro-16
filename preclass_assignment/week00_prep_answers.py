@@ -1,3 +1,5 @@
+'1. Write a simple function'
+
 greet = ('Dimi')  # Define a function called greet that takes a name as a string
 print('Hello,', greet,"!")  # print "Hello, <name>!" 
 

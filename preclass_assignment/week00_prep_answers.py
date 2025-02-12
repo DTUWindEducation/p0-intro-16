@@ -1,77 +1,60 @@
-'1. Write a simple function'
+# Exercise 1 : Write a simple function
+def greet(name):
+    return print("Hello, " + name + "!")
 
-greet = ('Dimi')  # Define a function called greet that takes a name as a string
-print('Hello,', greet,"!")  # print "Hello, <name>!" 
+greet('World')
 
 
-'2. If/else statements'
-
-def goldilocks(bed_length):        # Goldilocks is 135 cm tall
-    if bed_length < 140:           # If the bed is shorter than 140 cm, or larger than 150 cm, then she is unhappy
-        print("Too small! ")
-    elif bed_length > 150:
-        print("Too large!")
+# Exercise 2 : If/Else statements
+def goldilocks(length):
+    if length > 150:
+        return "Too large!"
+    elif length < 140:
+        return "Too small!"
     else:
-        print("Just right. :)")
-        
-goldilocks(140)
+        return "Just right! :)"
+
+list_of_length = [139, 140, 141, 149, 150, 151, 152]
+
+for length in list_of_length:
+    print("Length: " + str(length) + " - " + goldilocks(length))
 
 
-'3. For loops'
+# Exercise 3 : For loops
+def square_list(list):
+    return [x**2 for x in list]
 
-import numpy as np     
-def square_list(x,y,z):                             #  takes a list of numbers and returns a list where each element has been squared
-   """Calculate the squares of x,y,z"""
-   return np.array([np.square(x),np.square(y),np.square(z)])
-
-x, y, z = 1, 2, 3 
-print(square_list(x,y,z))
+print(square_list([1, 2, 3]))
 
 
-'4. While loops'
+# Exercise 4 : While loops
+def fibonacci_stop(stop):
+    fib = [0, 1]
+    while fib[-1] < stop:
+        fib_new = fib[-1] + fib[-2]
+        fib.extend([fib_new])
+    return fib[:-1]
 
+print(fibonacci_stop(30))
 
-def fibonacci_stop(max_value):
-    """Return a list of Fibonacci numbers up to max_value."""
-    fib_sequence = []  # Start with an empty list
-    x, y = 1, 1        # First two Fibonacci numbers
-    
-    while x <= max_value:
-        fib_sequence.append(x)  # Append the current Fibonacci number to the list
-        x, y = y, x + y         # Update the values for the next iteration
-    
-    return fib_sequence
+# Exercise 5 : Local operators
+x = [-1, 2, 6, 95, 55]
+status = [1, 0, 0, 0, 1]
 
-print(fibonacci_stop(30))  
-
-
-"5. Logical operators"
-
-def clean_pitch(pitches, statuses):
-    
-    """ Clean pitch measurements based on instrument status.
-    
-    For each pitch measurement:
-      - If the pitch is outside [0, 90] and the corresponding status is non-zero (instrument malfunctioning), the pitch is set to -999.
-      - Otherwise, the pitch is left unchanged.
-    
-    Parameters:
-        pitches (list of numbers): The pitch measurements.
-        statuses (list of numbers): The corresponding status signals.
-    
-    Returns:
-        list: The cleaned pitch measurements. """
-        
-    cleaned = []
-    for pitch, status in zip(pitches, statuses):
-        if (pitch < 0 or pitch > 90) and status > 0:
-            cleaned.append(-999)
+def clean_pitch(x, status):
+    x_clean = [None] * len(x)
+    for i in range(len(x)):
+        if x[i] < 0 and status[i] == 1:
+            x_clean[i] = -999
+        elif x[i] < 0 and status[i] == 0:
+            x_clean[i] = x[i]
+        elif x[i] > 90 and status[i] == 1:
+            x_clean[i] = -999
+        elif x[i] > 90 and status[i] == 0:
+            x_clean[i] = x[i]
         else:
-            cleaned.append(pitch)
-    return cleaned
+            x_clean[i] = x[i]
+    return x_clean
 
-# Example usage:
-x = [-1, 2, 6, 95]       # "raw" pitch angles at four time steps
-status = [1, 0, 0, 0]    #  status signal
-
-print(clean_pitch(x, status))  # Output: [-999, 2, 6, 95]
+x_clean = clean_pitch(x, status)
+print(x_clean)

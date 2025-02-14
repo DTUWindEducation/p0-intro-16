@@ -43,7 +43,7 @@ Yes, Git is suitable for latex documents.
 
 I could use it as changes of a document can be tracked over time and reverted to earlier versions if needed and VCS enables multiple people to work on the same files without overwriting each other's changes. However, due to poor handling of Binary Large Objects, PowerPoint presentations with images/videos can become large, making Git slow and inefficient.
 
-## Question 10:What could happen when I push my latest commit to the remote repository without pulling first?
+## Question 10: What could happen when I push my latest commit to the remote repository without pulling first?
 
 If my local branch is up to date, my push will succeed without any issues and the remote branch will simply be updated with my new commit, but if there are new commits in the remote branch without pulling first, my push will be rejected with an error message.
 
@@ -53,7 +53,7 @@ There are two possibilities:
 In the first one Git will merge the remote changes with my local changes and my uncommitted changes will remain, and Ι can continue working.
 In the second one, Git will stop the pull and show an error message in which cannot merge files that have both local and remote changes.
 
-# Question 12: What is the difference between branching and forking?
+## Question 12: What is the difference between branching and forking?
 
 Both allow you to work on changes independently, but Branching is used within the same repository, creates a lightweight copy of the project inside the same repo and is good for feature development, bug fixes, or experiments, while Forking creates a completely independent copy of a repository, is used to contribute to open-source projects or modify projects without affecting the original repo and is ideal for working on projects you don’t have direct write access to.
 

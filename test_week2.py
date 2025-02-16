@@ -49,6 +49,10 @@ def test_fibonacci_stop():
 def test_clean_pitch():
     """Check clean_pitch works as expected."""
     # given
+    inp = [-1, 2, 6, 95 ] 
+    status = [1, 0, 0, 0]
+    exp_out = [-999, 2, 6, 95]              # expected output (taken from assignment description)
     # when
+    out = fxn.clean_pitch(inp, status)        # actual output 
     # then
-    assert False  # TODO! Update the contents of this function so it correctly tests clean_pitch
+    assert  exp_out == out  # TODO! Update the contents of this function so it correctly tests clean_pitch

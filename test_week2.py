@@ -39,7 +39,7 @@ def test_fibonacci_stop():
     # given
     inp = 30        # test input to function (taken from assignment description)
     # given
-    exp_out = [1, 1, 2, 3, 5, 8, 13, 21]        # expected output (taken from assignment description)
+    exp_out = [0,1, 1, 2, 3, 5, 8, 13, 21]        # expected output (taken from assignment description)
     # when
     out = fxn.fibonacci_stop(inp)       # actual output 
     # then
